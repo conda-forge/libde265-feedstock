@@ -1,5 +1,5 @@
 {% set name = "libde265" %}
-{% set version = "1.0.15" %}
+{% set version = "1.0.17" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/strukturag/libde265/releases/download/v{{ version }}/libde265-{{ version }}.tar.gz
-  sha256: 00251986c29d34d3af7117ed05874950c875dd9292d016be29d3b3762666511d
+  sha256: e919bbe34370fbcfa36c48ecc6efd5c861f7df43b9a58210e68350d43bab71a5
 
 build:
   number: 0
@@ -18,6 +18,7 @@ requirements:
   build:
     - gnuconfig  # [unix]
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
     - cmake
     - ninja
 
