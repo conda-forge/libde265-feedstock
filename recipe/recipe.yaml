@@ -28,7 +28,13 @@ requirements:
 tests:
   - package_contents:
       lib:
-        - de265
+        - if: win
+          then:
+            - libde265.dll
+            - de265.lib
+
+          else:
+            - de256
       include:
         - libde265/de265.h
       files:
