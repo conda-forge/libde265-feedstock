@@ -18,7 +18,6 @@ multithreading and includes SSE optimizations. The decoder includes all
 features of the Main profile and correctly decodes almost all conformance
 streams.
 
-
 Current build status
 ====================
 
@@ -208,4 +207,5 @@ Feedstock Maintainers
 =====================
 
 * [@frmdstryr](https://github.com/frmdstryr/)
+* [@wolfv](https://github.com/wolfv/)
 
