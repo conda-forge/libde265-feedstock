@@ -28,7 +28,7 @@ requirements:
 tests:
   - package_contents:
       lib:
-        - libde265
+        - de265
       include:
         - libde265/de265.h
       files:
