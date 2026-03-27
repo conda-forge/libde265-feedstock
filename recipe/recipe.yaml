@@ -31,10 +31,10 @@ tests:
         - if: win
           then:
             - libde265.dll
-            - de265.lib
-
-          else:
-            - de256
+            - de256.lib
+        - if: unix
+          then:
+            - de265
       include:
         - libde265/de265.h
       files:
