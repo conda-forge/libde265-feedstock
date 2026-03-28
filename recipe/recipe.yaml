@@ -1,0 +1,67 @@
+context:
+  name: libde265
+  version: "1.0.17"
+
+package:
+  name: ${{ name | lower }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/strukturag/libde265/releases/download/v${{ version }}/libde265-${{ version }}.tar.gz
+  sha256: e919bbe34370fbcfa36c48ecc6efd5c861f7df43b9a58210e68350d43bab71a5
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - if: unix
+      then: gnuconfig
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib("c") }}
+    - cmake
+    - ninja
+  run_exports:
+    - ${{ pin_subpackage('libde265', upper_bound='x.x.x') }}
+
+
+tests:
+  - package_contents:
+      lib:
+        - if: unix
+          then:
+            - de265
+      include:
+        - libde265/de265.h
+      files:
+        - if: unix
+          then:
+            - lib/pkgconfig/libde265.pc
+        - if: win
+          then:
+            - Library/lib/de265.lib
+            - Library/bin/libde265.dll
+        - "**/lib/cmake/libde265/libde265Config.cmake"
+      bin:
+        - dec265
+  - script:
+      - dec265 -h
+
+about:
+  homepage: http://www.libde265.org/
+  summary: Open h.265 video codec implementation
+  description: |
+    libde265 is an open source implementation of the h.265 video codec.
+    It is written from scratch and has a plain C API to enable a simple
+    integration into other software. libde265 supports WPP and tile-based
+    multithreading and includes SSE optimizations. The decoder includes all
+    features of the Main profile and correctly decodes almost all conformance
+    streams.
+  license: LGPL-3.0-or-later
+  license_file: COPYING
+  repository: https://github.com/strukturag/libde265
+
+extra:
+  recipe-maintainers:
+    - frmdstryr
+    - wolfv
