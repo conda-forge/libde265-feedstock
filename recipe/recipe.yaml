@@ -41,7 +41,7 @@ tests:
           then:
             - Library/lib/de265.lib
             - Library/bin/libde265.dll
-        - "**/lib/cmake/libde265/libde265Config.cmake"
+        - "**/lib/cmake/libde265/libde265-config.cmake"
       bin:
         - dec265
   - script:
