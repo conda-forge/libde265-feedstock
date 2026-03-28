@@ -39,7 +39,7 @@ tests:
             - lib/pkgconfig/libde265.pc
         - if: win
           then:
-            - Library/lib/de256.lib
+            - Library/lib/de265.lib
             - Library/bin/libde265.dll
         - "**/lib/cmake/libde265/libde265Config.cmake"
       bin:
